@@ -1,30 +1,38 @@
-import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
+import { BrowserModule } from "@angular/platform-browser";
+import { NgModule } from "@angular/core";
 
-import { AppRoutingModule } from './app-routing.module';
-import { AppComponent } from './app.component';
-import { HomeComponent } from './components/home/home.component';
+import { RouterModule } from "@angular/router";
+import { ROUTES } from "./app-routing.module";
+
+import { HttpClientModule, HttpClientJsonpModule } from "@angular/common/http";
+
+import { AppComponent } from "./app.component";
+import { HomeComponent } from "./components/home/home.component";
+import { SearchComponent } from "./components/search/search.component";
+import { LoadingComponent } from "./components/shared/loading/loading.component";
+import { PeliculaComponent } from "./components/pelicula/pelicula.component";
+import { TarjetasComponent } from "./components/tarjetas/tarjetas.component";
 import { NavbarComponent } from './components/navbar/navbar.component';
-import { PeliculaComponent } from './components/pelicula/pelicula.component';
-import { SearchComponent } from './components/search/search.component';
-import { LoadingComponent } from './components/shared/loading/loading.component';
-import { TarjetasComponent } from './components/tarjetas/tarjetas.component';
+import { PeliculaImagenPipe } from './pipes/pelicula-imagen.pipe';
 
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
-    NavbarComponent,
-    PeliculaComponent,
     SearchComponent,
     LoadingComponent,
-    TarjetasComponent
+    PeliculaComponent,
+    TarjetasComponent,
+    NavbarComponent,
+    PeliculaImagenPipe
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    HttpClientModule,
+    HttpClientJsonpModule,
+    RouterModule.forRoot(ROUTES, { useHash: true })
   ],
   providers: [],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule {}

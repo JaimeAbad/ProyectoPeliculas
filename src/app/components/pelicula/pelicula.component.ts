@@ -15,14 +15,14 @@ export class PeliculaComponent {
   loadingPelicula: boolean;
 
   constructor(private router: ActivatedRoute,
-    private moviedb: MoviedbService) {
+    private peli: PeliService) {
 
     this.loadingPelicula = true;
 
     this.router.params.subscribe(params => {
       console.log(params);
 
-      this.moviedb.getPelicula(params['id'])
+      this.peli.getPelicula(params['id'])
         .subscribe(pelicula => {
           console.log(pelicula);
           this.pelicula = pelicula;
