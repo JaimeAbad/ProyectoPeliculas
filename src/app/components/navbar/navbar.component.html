@@ -20,11 +20,7 @@
   </div>
   <div class="row">
     <div class="col">
-      <input #termino
-      type="text"
-      (keyup)="buscar(termino.value)"
-      class="form-control"
-      placeholder="Buscar Pelicula"/>
+      <input class="form-control mr-sm-2" type="search" placeholder="Buscar Pelicula" aria-label="Search" (keyup)="buscar(termino.value)" #termino />
     </div>
   </div>
 <button class="btn btn-outline-success my-2 my-sm-0" type="button" placeholder="Buscar Pelicula" (click)="buscar(termino.value)" #termino>Buscar</button>

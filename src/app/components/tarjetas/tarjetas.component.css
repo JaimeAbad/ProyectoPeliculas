@@ -1,0 +1,15 @@
+#imagen {
+			width:500px;
+			height:375px;
+			position:relative;
+		}
+		#txt{
+			position: absolute;
+			bottom:50px;
+      left: 25px;
+			color:#fff;
+			background-color:#000;
+			padding:20px;
+			opacity:0.6;
+			font-weight:bold;
+		}

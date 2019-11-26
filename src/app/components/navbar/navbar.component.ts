@@ -7,12 +7,15 @@ import { PeliService } from 'src/app/services/peli.service';
   styleUrls: ['./navbar.component.css']
 })
 export class NavbarComponent implements OnInit {
+  router: any;
 
   constructor() { }
 
   ngOnInit() {
   }
 
-
+  buscar(palabraBuscada:string){
+     this.router.navigate(['buscar/',palabraBuscada]);
+   }
 
 }
