@@ -7,24 +7,12 @@ import { PeliService } from 'src/app/services/peli.service';
   styleUrls: ['./navbar.component.css']
 })
 export class NavbarComponent implements OnInit {
-  peliculas: any[] = [];
-  loading: boolean;
 
-  constructor(private peli: PeliService) { }
+  constructor() { }
 
   ngOnInit() {
   }
 
-  buscar(termino: string) {
-    console.log(termino);
 
-    this.loading = true;
-    this.peli.getBusquedaPeliculas(termino).subscribe((data: any) => {
-      console.log(data);
-
-      this.peliculas = data;
-      this.loading = false;
-    });
-  }
 
 }
