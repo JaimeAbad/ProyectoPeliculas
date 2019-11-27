@@ -3,6 +3,8 @@ import { HttpClient } from "@angular/common/http";
 
 // Importo map reactive extentions
 import { map } from "rxjs/operators";
+import { AngularFireAuth } from '@angular/fire/auth';
+import * as firebase from 'firebase/app';
 
 @Injectable({
   providedIn: "root"
@@ -12,7 +14,7 @@ export class PeliService {
   private apikey: string = "f9b276a8a665a41333c2def2f632a2e4";
   private urlPeli: string = "https://api.themoviedb.org/3";
 
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient, public afAuth: AngularFireAuth) { }
 
   //Metodo para pasar URL para peticion
 
@@ -52,6 +54,10 @@ export class PeliService {
     return this.getQueryforPelicula(`/movie/${id}`).pipe(
       map((data: any) => data)
     );
+  }
+
+  login(){
+    return this.afAuth.auth.signInWithPopup(new firebase.auth.GoogleAuthProvider());
   }
 
 }
