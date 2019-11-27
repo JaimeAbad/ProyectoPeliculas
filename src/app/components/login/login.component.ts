@@ -8,7 +8,8 @@ import { PeliService } from 'src/app/services/peli.service';
 })
 export class LoginComponent implements OnInit {
 
-  constructor(private peli: PeliService) { }
+// private peli: PeliService
+  constructor() { }
 
   ngOnInit() {
   }
