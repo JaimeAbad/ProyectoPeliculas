@@ -13,18 +13,18 @@ export class LoginComponent implements OnInit {
   ngOnInit() {
   }
 
-  login(){
-    this.peli.login().
-    then((data)=>{
-      console.log(data);
-      alert('Se ha logeado correctamente.');
-    })
-    .catch((error)=>{
-      console.log(error);
-      alert('No se ha logeado correctamente.');
-    })
-
-  }
+  // login(){
+  //   this.peli.login().
+  //   then((data)=>{
+  //     console.log(data);
+  //     alert('Se ha logeado correctamente.');
+  //   })
+  //   .catch((error)=>{
+  //     console.log(error);
+  //     alert('No se ha logeado correctamente.');
+  //   })
+  //
+  // }
 
 
 }

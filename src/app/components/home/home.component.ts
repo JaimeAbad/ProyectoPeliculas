@@ -7,7 +7,9 @@ import { PeliService } from '../../services/peli.service';
 })
 export class HomeComponent {
 
-  nuevasPeliculas: any[] = [];
+  popularesPeliculas: any[] = [];
+  infantilesPeliculas: any[] = [];
+  carteleraPeliculas: any[] = [];
   loading: boolean;
 
   constructor(private peli: PeliService) {
@@ -18,9 +20,25 @@ export class HomeComponent {
       .subscribe((data: any) => {
 
         console.log(data);
-        this.nuevasPeliculas = data;
+        this.popularesPeliculas = data;
         this.loading = false;
       });
+
+      this.peli.getDiscoverInfantil()
+        .subscribe((data: any) => {
+
+          console.log(data);
+          this.infantilesPeliculas = data;
+          this.loading = false;
+        });
+
+      this.peli.getDiscoverCartelera()
+          .subscribe((data: any) => {
+
+            console.log(data);
+            this.carteleraPeliculas = data;
+            this.loading = false;
+          });
 
   }
 

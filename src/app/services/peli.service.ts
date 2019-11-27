@@ -3,8 +3,8 @@ import { HttpClient } from "@angular/common/http";
 
 // Importo map reactive extentions
 import { map } from "rxjs/operators";
-import { AngularFireAuth } from '@angular/fire/auth';
-import * as firebase from 'firebase/app';
+// import { AngularFireAuth } from '@angular/fire/auth';
+// import * as firebase from 'firebase/app';
 
 @Injectable({
   providedIn: "root"
@@ -14,8 +14,8 @@ export class PeliService {
   private apikey: string = "f9b276a8a665a41333c2def2f632a2e4";
   private urlPeli: string = "https://api.themoviedb.org/3";
 
-  constructor(private http: HttpClient, public afAuth: AngularFireAuth) { }
-
+  constructor(private http: HttpClient) { }
+// , public afAuth: AngularFireAuth
   //Metodo para pasar URL para peticion
 
   getQuery(query: string) {
@@ -56,8 +56,19 @@ export class PeliService {
     );
   }
 
-  login(){
-    return this.afAuth.auth.signInWithPopup(new firebase.auth.GoogleAuthProvider());
+  getDiscoverInfantil() {
+    return this.getQuery("/discover/movie?sort_by=popularity.desc&with_genres=16").pipe(
+      map((data: any) => data.results)
+    );
   }
+  getDiscoverCartelera() {
+    return this.getQuery("/movie/now_playing?").pipe(
+      map((data: any) => data.results)
+    );
+  }
+
+  // login(){
+  //   return this.afAuth.auth.signInWithPopup(new firebase.auth.GoogleAuthProvider());
+  // }
 
 }

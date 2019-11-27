@@ -15,19 +15,19 @@ import { TarjetasComponent } from "./components/tarjetas/tarjetas.component";
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { PeliculaImagenPipe } from './pipes/pelicula-imagen.pipe';
 import { LoginComponent } from './components/login/login.component';
-import { AngularFireModule } from '@angular/fire';
-import { AngularFireDatabaseModule, AngularFireDatabase } from '@angular/fire/database';
-import { AngularFireAuthModule } from '@angular/fire/auth';
-import { PeliService } from './services/peli.service';
+// import { AngularFireModule } from '@angular/fire';
+// import { AngularFireDatabaseModule, AngularFireDatabase } from '@angular/fire/database';
+// import { AngularFireAuthModule } from '@angular/fire/auth';
+// import { PeliService } from './services/peli.service';
 
-//poner aqui los datos de mi web
-export const firebaseConfig = {
-  apiKey: "AIzaSyCoRqkFfdz9vkso7HPguY4HyuTHQx-5ltc",
-  authDomain: "your-domain-name.firebaseapp.com",
-  databaseURL: "https://your-domain-name.firebaseio.com",
-  storageBucket: "your-domain-name.appspot.com",
-  messagingSenderId: '<your-messaging-sender-id>'
-};
+//datos de mi web
+// export const firebaseConfig = {
+//   apiKey: "AIzaSyCoRqkFfdz9vkso7HPguY4HyuTHQx-5ltc",
+//   authDomain: "your-domain-name.firebaseapp.com",
+//   databaseURL: "https://your-domain-name.firebaseio.com",
+//   storageBucket: "your-domain-name.appspot.com",
+//   messagingSenderId: '<your-messaging-sender-id>'
+// };
 
 @NgModule({
   declarations: [
@@ -46,11 +46,12 @@ export const firebaseConfig = {
     HttpClientModule,
     HttpClientJsonpModule,
     RouterModule.forRoot(ROUTES, { useHash: true }),
-    AngularFireModule.initializeApp(firebaseConfig),
-    AngularFireDatabaseModule,
-    AngularFireAuthModule
+    // AngularFireModule.initializeApp(firebaseConfig),
+    // AngularFireDatabaseModule,
+    // AngularFireAuthModule
   ],
-  providers: [PeliService],
+  providers: [],
+  // PeliService
   bootstrap: [AppComponent]
 })
 export class AppModule {}

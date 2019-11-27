@@ -1,5 +1,5 @@
 <div class="card-columns m-5 animated fadeIn">
-  <div (click)="verPelicula(item)" *ngFor="let item of items" class="card puntero" id="imagen">
+  <div (click)="verPelicula(item)" *ngFor="let item of items" class="card puntero" id="imagen" >
     <img class="card-img-top" [src]="item | peliculaImagen" alt="Card image cap" />
       <h5 id="txt" class="card-title">{{ item.title }}</h5>
       <p class="card-text">

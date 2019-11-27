@@ -23,14 +23,14 @@ export class SearchComponent {
   buscar(termino: string) {
     console.log(termino);
     this.router.navigate(['buscar', termino]);
-  this.loading = true;
-  this.peli.getBusquedaPeliculas(termino).subscribe((data: any) => {
-    console.log(data);
+    this.loading = true;
+    this.peli.getBusquedaPeliculas(termino).subscribe((data: any) => {
+      console.log(data);
 
     this.peliculas = data;
     this.loading = false;
-  });
-
-
+    });
   }
+
+
 }
