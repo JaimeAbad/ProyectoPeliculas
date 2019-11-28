@@ -31,13 +31,8 @@ export class PeliculaComponent {
     })
 
   }
-  /*
-    getPelicula(id: string) {
 
-      this.loadingPelicula = true;
-
-      this.moviedb.getPelicula( parametros['id'])
-    } */
+  mostrar = false;
 
 
 }

@@ -21,9 +21,22 @@
                 Voto promedio: <span class="badge badge-primary">{{ pelicula.vote_average }}</span>
             </p>
 
+
+            <div *ngIf="mostrar">
+              <ul class="list-group">
+                <li> Yelmo Cines</li>
+                <li> Odeon Multicines Bahia Plaza</li>
+                <li> Premium Yelmo</li>
+                <li> Particular</li>
+                <li> Cines Cinesa</li>
+              </ul>
+            </div>
+
             <button [routerLink]="['/'+regresarA, busqueda ]" type="button" class="btn btn-outline-danger">
                 Regresar
             </button>
+            <button (click)="mostrar = !mostrar" class="btn btn-outline-primary">Mostrar Localizacion/Ocultar Localizacion</button>
+
 
         </div>
     </div>

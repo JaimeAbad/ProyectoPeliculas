@@ -3,8 +3,6 @@ import { HttpClient } from "@angular/common/http";
 
 // Importo map reactive extentions
 import { map } from "rxjs/operators";
-// import { AngularFireAuth } from '@angular/fire/auth';
-// import * as firebase from 'firebase/app';
 
 @Injectable({
   providedIn: "root"
@@ -67,8 +65,5 @@ export class PeliService {
     );
   }
 
-  // login(){
-  //   return this.afAuth.auth.signInWithPopup(new firebase.auth.GoogleAuthProvider());
-  // }
 
 }
