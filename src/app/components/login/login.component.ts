@@ -1,5 +1,10 @@
 import { Component, OnInit } from '@angular/core';
-import { PeliService } from 'src/app/services/peli.service';
+import { NgForm } from '@angular/forms';
+import { AutenticacionService } from '../../service/autenticacion.service';
+// ES6 MODULES OR TYPESCRIPT
+import Swal from 'sweetalert2';
+import { Router } from '@angular/router';
+import { UsuarioModel } from '../models/usuario.model';
 
 @Component({
   selector: 'app-login',
@@ -7,25 +12,71 @@ import { PeliService } from 'src/app/services/peli.service';
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent implements OnInit {
+  usuario: UsuarioModel;
+  recordarme : boolean;
 
-// private peli: PeliService
-  constructor() { }
+  constructor(private autenticacion: AutenticacionService,
+     private router : Router ) {
 
-  ngOnInit() {
   }
 
-  // login(){
-  //   this.peli.login().
-  //   then((data)=>{
-  //     console.log(data);
-  //     alert('Se ha logeado correctamente.');
-  //   })
-  //   .catch((error)=>{
-  //     console.log(error);
-  //     alert('No se ha logeado correctamente.');
-  //   })
-  //
-  // }
+  ngOnInit() {
+    this.usuario = new UsuarioModel();
+    this.usuario.email = '';
 
+    /*Comprobar si pulsamos 'recordarme' para cargar la info del localStorage*/
+    if(localStorage.getItem('email') ){
+      this.usuario.email = localStorage.getItem('email');
+      this.recordarme = true;
+    }
+  }
+
+  login( form: NgForm) {
+    if ( form.invalid) {
+      return;
+    }
+
+    Swal.fire({
+      allowOutsideClick: false, //prevenir cerrar el alert al clicar
+      type: 'info',
+      text: 'Espere por favor ...'
+    });
+    //METODO PARA QUE NO APAREZCA BOTON DE ACEPTAR/OK
+    Swal.showLoading();
+
+    const Toast = Swal.mixin({
+      toast: true,
+      position: 'center',
+      showConfirmButton: false,
+      timer: 3000
+    })
+
+    this.autenticacion.login( this.usuario )
+    .subscribe( resp => {
+      console.log(resp);
+      Swal.close();
+      this.router.navigateByUrl('/home');
+      Toast.fire({
+        type: 'success',
+        title: 'Logeado'
+      })
+      //Controlo si se ha pulsado correctamente
+      if (this.recordarme) {
+          localStorage.setItem('email', this.usuario.email);
+      }
+
+
+    }, (error)=> {
+      console.log(error);
+      console.log(error.error.error.message);
+      Swal.fire({
+        type: 'error',
+        title: 'Error al autenticar',
+        text: error.error.error.message
+      });
+    });
+
+
+  }
 
 }

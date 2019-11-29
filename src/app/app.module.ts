@@ -2,6 +2,7 @@ import { BrowserModule } from "@angular/platform-browser";
 import { NgModule } from "@angular/core";
 
 import { RouterModule } from "@angular/router";
+import { FormsModule } from "@angular/forms";
 import { ROUTES } from "./app-routing.module";
 
 import { HttpClientModule, HttpClientJsonpModule } from "@angular/common/http";
@@ -15,6 +16,7 @@ import { TarjetasComponent } from "./components/tarjetas/tarjetas.component";
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { PeliculaImagenPipe } from './pipes/pelicula-imagen.pipe';
 import { LoginComponent } from './components/login/login.component';
+import { RegistroComponent } from './components/registro/registro.component';
 
 @NgModule({
   declarations: [
@@ -27,12 +29,14 @@ import { LoginComponent } from './components/login/login.component';
     NavbarComponent,
     PeliculaImagenPipe,
     LoginComponent,
+    RegistroComponent,
   ],
   imports: [
     BrowserModule,
     HttpClientModule,
     HttpClientJsonpModule,
-    RouterModule.forRoot(ROUTES, { useHash: true })
+    RouterModule.forRoot(ROUTES, { useHash: true }),
+    FormsModule
   ],
   providers: [],
   // PeliService
