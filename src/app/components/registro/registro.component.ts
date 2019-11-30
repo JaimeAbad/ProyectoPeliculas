@@ -1,9 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
-import { AutenticacionService } from 'src/app/service/autenticacion.service';
 import Swal from 'sweetalert2';
 import { Router } from '@angular/router';
 import { UsuarioModel } from '../models/usuario.model';
+import { AutenticacionService } from '../autenticacion/autenticacion.service';
 
 @Component({
   selector: 'app-registro',
@@ -29,7 +29,7 @@ export class RegistroComponent implements OnInit {
     }
     Swal.fire({
       allowOutsideClick: false, //prevenir cerrar el alert
-      type: 'info',
+      icon: 'info',
       text: 'Espere por favor ...'
     });
     //Metodo para que no aparezca boton de aceptar
@@ -49,7 +49,7 @@ export class RegistroComponent implements OnInit {
       console.log(error);
       console.log(error.error.error.message);
       Swal.fire({
-        type: 'error',
+        icon: 'error',
         title: 'Error al autenticar',
         text: error.error.error.message
       });

@@ -3,13 +3,16 @@ import { HomeComponent } from "./components/home/home.component";
 import { SearchComponent } from "./components/search/search.component";
 import { PeliculaComponent } from "./components/pelicula/pelicula.component";
 import { LoginComponent } from './components/login/login.component';
+import { AuthGuard } from './guards/auth.guard';
+import { RegistroComponent } from './components/registro/registro.component';
 
 export const ROUTES: Routes = [
-  { path: "home", component: HomeComponent },
-  { path: 'buscar/:palabra', component: SearchComponent },
-  { path: "search", component: SearchComponent },
-  { path: "login", component: LoginComponent },
-  { path: "pelicula/:id", component: PeliculaComponent },
+  { path: "home", component: HomeComponent, canActivate: [AuthGuard] },
+  { path: 'buscar/:palabra', component: SearchComponent, canActivate: [AuthGuard] },
+  { path: "search", component: SearchComponent, canActivate: [AuthGuard] },
+  { path: "login", component: LoginComponent, canActivate: [AuthGuard]},
+  { path: 'registro', component: RegistroComponent, canActivate: [AuthGuard]},
+  { path: "pelicula/:id", component: PeliculaComponent, canActivate: [AuthGuard] },
   { path: "", pathMatch: "full", redirectTo: "home" },
   { path: "**", pathMatch: "full", redirectTo: "home" }
 ];

@@ -1,10 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
-import { AutenticacionService } from '../../service/autenticacion.service';
 // ES6 MODULES OR TYPESCRIPT
 import Swal from 'sweetalert2';
 import { Router } from '@angular/router';
 import { UsuarioModel } from '../models/usuario.model';
+import { AutenticacionService } from '../autenticacion/autenticacion.service';
 
 @Component({
   selector: 'app-login',
@@ -38,7 +38,7 @@ export class LoginComponent implements OnInit {
 
     Swal.fire({
       allowOutsideClick: false, //prevenir cerrar el alert al clicar
-      type: 'info',
+      icon: 'info',
       text: 'Espere por favor ...'
     });
     //METODO PARA QUE NO APAREZCA BOTON DE ACEPTAR/OK
@@ -55,22 +55,25 @@ export class LoginComponent implements OnInit {
     .subscribe( resp => {
       console.log(resp);
       Swal.close();
-      this.router.navigateByUrl('/home');
-      Toast.fire({
-        type: 'success',
-        title: 'Logeado'
-      })
+
       //Controlo si se ha pulsado correctamente
       if (this.recordarme) {
           localStorage.setItem('email', this.usuario.email);
       }
+
+      this.router.navigateByUrl('/home');
+      Toast.fire({
+        icon: 'success',
+        title: 'Logeado'
+      })
+
 
 
     }, (error)=> {
       console.log(error);
       console.log(error.error.error.message);
       Swal.fire({
-        type: 'error',
+        icon: 'error',
         title: 'Error al autenticar',
         text: error.error.error.message
       });

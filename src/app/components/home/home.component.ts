@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { PeliService } from '../../services/peli.service';
+import { AutenticacionService } from '../autenticacion/autenticacion.service';
+import { Router } from '@angular/router';
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
@@ -12,7 +14,8 @@ export class HomeComponent {
   carteleraPeliculas: any[] = [];
   loading: boolean;
 
-  constructor(private peli: PeliService) {
+  constructor(private peli: PeliService, private autenticacion: AutenticacionService,
+  private router: Router) {
 
     this.loading = true;
 
@@ -40,6 +43,12 @@ export class HomeComponent {
             this.loading = false;
           });
 
+  }
+
+
+  cerrarSesion(){
+    this.autenticacion.salir();
+    this.router.navigateByUrl('/login');
   }
 
 
