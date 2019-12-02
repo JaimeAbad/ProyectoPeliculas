@@ -17,7 +17,6 @@ import { NavbarComponent } from './components/navbar/navbar.component';
 import { PeliculaImagenPipe } from './pipes/pelicula-imagen.pipe';
 import { LoginComponent } from './components/login/login.component';
 import { RegistroComponent } from './components/registro/registro.component';
-
 import { PeliService } from './services/peli.service';
 
 

@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { PeliService } from '../../services/peli.service';
 import { AutenticacionService } from '../autenticacion/autenticacion.service';
 import { Router } from '@angular/router';
+import { UsuarioModel } from '../models/usuario.model';
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
@@ -13,7 +14,8 @@ export class HomeComponent {
   infantilesPeliculas: any[] = [];
   carteleraPeliculas: any[] = [];
   loading: boolean;
-
+  usuario: UsuarioModel;
+  control: boolean = false;
   constructor(private peli: PeliService, private autenticacion: AutenticacionService,
   private router: Router) {
 
@@ -49,7 +51,10 @@ export class HomeComponent {
   cerrarSesion(){
     this.autenticacion.salir();
     this.router.navigateByUrl('/login');
+    localStorage.removeItem('email');
+    this.control = false;
   }
+
 
 
 }

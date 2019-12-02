@@ -51,7 +51,10 @@ export class LoginComponent implements OnInit {
 
     this.autenticacion.login( this.usuario )
     .subscribe( resp => {
+      localStorage.setItem('email', this.usuario.email);
       console.log(resp);
+      localStorage.setItem('token', resp['idToken']);
+
       Swal.close();
 
       //Controlo si se ha pulsado correctamente

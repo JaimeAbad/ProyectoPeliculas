@@ -12,6 +12,7 @@ export class AutenticacionService {
 
   private apiKey = 'AIzaSyCoRqkFfdz9vkso7HPguY4HyuTHQx-5ltc';
   userToken: string;
+  control: boolean = false;
 
   constructor(private http: HttpClient) { }
 
@@ -56,6 +57,7 @@ export class AutenticacionService {
   guardarToken( idToken: string ) {
     this.userToken = idToken;
     localStorage.setItem('token',idToken);
+    
   }
 
   leerToken(){
@@ -67,11 +69,17 @@ export class AutenticacionService {
   }
 
   comprobarEstarAutenticado(): boolean {
-    return this.userToken.length > 2;
+    if(this.userToken != undefined) {
+      return this.userToken.length > 2;
+    } else {
+      return false;
+    }
   }
 
   salir(){
     localStorage.removeItem('token');
+    this.control=false;
+
   }
 
 
