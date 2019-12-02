@@ -7,16 +7,17 @@
 
 
 <div class="m-5" >
-  <button *ngIf="control" class="btn btn-outline-danger"
+  <!-- *ngIf="control" -->
+  <button  class="btn btn-outline-danger"
           (click)= "cerrarSesion()">
     Cerrar Sesión
   </button>
 </div>
 
 <app-loading *ngIf="loading"></app-loading>
-<p>Películas en cartelera</p>
+<h4 id="enca">Películas en cartelera</h4>
 <app-tarjetas [items]="carteleraPeliculas"></app-tarjetas>
-<h4>Populares</h4>
+<h4 id="enca">Populares</h4>
 <app-tarjetas [items]="popularesPeliculas"></app-tarjetas>
-<h4>Populares entre los mas pequeños</h4>
+<h4 id="enca">Populares entre los mas pequeños</h4>
 <app-tarjetas [items]="infantilesPeliculas"></app-tarjetas>

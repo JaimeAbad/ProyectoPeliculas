@@ -52,7 +52,7 @@ export class HomeComponent {
     this.autenticacion.salir();
     this.router.navigateByUrl('/login');
     localStorage.removeItem('email');
-    this.control = false;
+    // this.control = false;
   }
 
 

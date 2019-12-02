@@ -8,13 +8,13 @@ import { AutenticacionService } from '../components/autenticacion/autenticacion.
   providedIn: 'root'
 })
 export class AuthGuard implements CanActivate {
-  constructor (private auth: AutenticacionService,
-               private router: Router){}
+  constructor (private router: Router){}
 
   canActivate(): boolean {
 
-    if (this.auth.comprobarEstarAutenticado()) {
+    if (localStorage.getItem('token').length>2) {
         return true;
+        
     } else {
       this.router.navigateByUrl('/login');
       return false;
