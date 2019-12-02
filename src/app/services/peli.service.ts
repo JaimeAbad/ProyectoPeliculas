@@ -4,6 +4,7 @@ import { HttpClient } from "@angular/common/http";
 // Importo map reactive extentions
 import { map } from "rxjs/operators";
 
+
 @Injectable({
   providedIn: "root"
 })
@@ -54,6 +55,7 @@ export class PeliService {
     );
   }
 
+
   getDiscoverInfantil() {
     return this.getQuery("/discover/movie?sort_by=popularity.desc&with_genres=16").pipe(
       map((data: any) => data.results)
@@ -64,6 +66,7 @@ export class PeliService {
       map((data: any) => data.results)
     );
   }
+
 
 
 }

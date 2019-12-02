@@ -18,6 +18,9 @@ import { PeliculaImagenPipe } from './pipes/pelicula-imagen.pipe';
 import { LoginComponent } from './components/login/login.component';
 import { RegistroComponent } from './components/registro/registro.component';
 
+import { PeliService } from './services/peli.service';
+
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -37,6 +40,7 @@ import { RegistroComponent } from './components/registro/registro.component';
     HttpClientJsonpModule,
     RouterModule.forRoot(ROUTES, { useHash: true }),
     FormsModule
+
   ],
   providers: [],
   // PeliService

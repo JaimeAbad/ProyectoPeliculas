@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
-// ES6 MODULES OR TYPESCRIPT
 import Swal from 'sweetalert2';
 import { Router } from '@angular/router';
 import { UsuarioModel } from '../models/usuario.model';
@@ -17,7 +16,6 @@ export class LoginComponent implements OnInit {
 
   constructor(private autenticacion: AutenticacionService,
      private router : Router ) {
-
   }
 
   ngOnInit() {
