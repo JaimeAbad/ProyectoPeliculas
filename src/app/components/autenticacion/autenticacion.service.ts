@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { map } from 'rxjs/operators';
 import { UsuarioModel } from '../models/usuario.model';
+import * as firebase from 'firebase';
 
 @Injectable({
   providedIn: 'root'
@@ -13,6 +14,7 @@ export class AutenticacionService {
   private apiKey = 'AIzaSyCoRqkFfdz9vkso7HPguY4HyuTHQx-5ltc';
   userToken: string;
   control: boolean = false;
+  afAuth: any;
 
   constructor(private http: HttpClient) { }
 
@@ -57,7 +59,7 @@ export class AutenticacionService {
   guardarToken( idToken: string ) {
     this.userToken = idToken;
     localStorage.setItem('token',idToken);
-    
+
   }
 
   leerToken(){
@@ -81,6 +83,7 @@ export class AutenticacionService {
     this.control=false;
 
   }
+
 
 
 

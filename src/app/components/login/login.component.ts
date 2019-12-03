@@ -4,6 +4,7 @@ import Swal from 'sweetalert2';
 import { Router } from '@angular/router';
 import { UsuarioModel } from '../models/usuario.model';
 import { AutenticacionService } from '../autenticacion/autenticacion.service';
+import { HttpClient } from '@angular/common/http';
 
 @Component({
   selector: 'app-login',
@@ -13,10 +14,25 @@ import { AutenticacionService } from '../autenticacion/autenticacion.service';
 export class LoginComponent implements OnInit {
   usuario: UsuarioModel;
   recordarme : boolean;
+  authService: any;
+  guard: any;
+  components: any;
+  provider: string;
+    id: string;
+    email: string;
+    name: string;
+    image: string;
+    token?: string;
+    idToken?: string;
+  url: string;
 
   constructor(private autenticacion: AutenticacionService,
-     private router : Router ) {
+     private router : Router, private http: HttpClient ) {
   }
+  Savesresponse(responce){
+        this.url =  'http://localhost:64726/Api/Login/Savesresponse';
+        return this.http.post(this.url,responce);
+      }
 
   ngOnInit() {
     this.usuario = new UsuarioModel();
@@ -79,8 +95,8 @@ export class LoginComponent implements OnInit {
         text: error.error.error.message
       });
     });
-
-
   }
+
+
 
 }

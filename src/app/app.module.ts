@@ -20,6 +20,7 @@ import { RegistroComponent } from './components/registro/registro.component';
 import { PeliService } from './services/peli.service';
 import { AgmCoreModule } from '@agm/core';
 
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -42,7 +43,6 @@ import { AgmCoreModule } from '@agm/core';
     AgmCoreModule.forRoot({
       apiKey: 'AIzaSyDPwqsBkYKECW8H1ORRR8vkk7R8zCNaDKE'
     })
-
   ],
   providers: [],
   bootstrap: [AppComponent]
