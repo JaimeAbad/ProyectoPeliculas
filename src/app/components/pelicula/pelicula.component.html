@@ -20,17 +20,17 @@
                 <br>
                 Voto promedio: <span class="badge badge-primary">{{ pelicula.vote_average }}</span>
             </p>
+            <p>Frase célebre: Que bonitos ojos tienes, tan redondos como el sol, se parecen a los ceros que me pone el profesor:) </p>
+            <p>Frase célebre: Eres fea, eres diestra pero a fin de cuentas eres mi maestra:D </p>
+            <p>Frase célebre: Ayer cuando me viste me tiraste una flor, la proxima vez sin maceta porfavor ! </p>
+            <p>Frase célebre: 667 64 52 01 </p>
+            <!-- <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDPwqsBkYKECW8H1ORRR8vkk7R8zCNaDKE&libraries=places"></script> -->
+            <agm-map [latitude]="latOd" [longitude]="lngOd" [zoom]="zoom">
+              <agm-marker [latitude]="latYelmo" [longitude]="lngYelmo"></agm-marker>
+              <agm-marker [latitude]="latOd" [longitude]="lngOd"></agm-marker>
+              <agm-marker [latitude]="latCinesa" [longitude]="lngCinesa"></agm-marker>
+            </agm-map>
 
-
-            <div *ngIf="mostrar">
-              <ul class="list-group">
-                <li> Yelmo Cines</li>
-                <li> Odeon Multicines Bahia Plaza</li>
-                <li> Premium Yelmo</li>
-                <li> Particular</li>
-                <li> Cines Cinesa</li>
-              </ul>
-            </div>
 
             <button [routerLink]="['/'+regresarA, busqueda ]" type="button" class="btn btn-outline-danger">
                 Regresar

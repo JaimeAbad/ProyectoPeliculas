@@ -18,7 +18,7 @@ import { PeliculaImagenPipe } from './pipes/pelicula-imagen.pipe';
 import { LoginComponent } from './components/login/login.component';
 import { RegistroComponent } from './components/registro/registro.component';
 import { PeliService } from './services/peli.service';
-
+import { AgmCoreModule } from '@agm/core';
 
 @NgModule({
   declarations: [
@@ -38,11 +38,13 @@ import { PeliService } from './services/peli.service';
     HttpClientModule,
     HttpClientJsonpModule,
     RouterModule.forRoot(ROUTES, { useHash: true }),
-    FormsModule
+    FormsModule,
+    AgmCoreModule.forRoot({
+      apiKey: 'AIzaSyDPwqsBkYKECW8H1ORRR8vkk7R8zCNaDKE'
+    })
 
   ],
   providers: [],
-  // PeliService
   bootstrap: [AppComponent]
 })
 export class AppModule {}

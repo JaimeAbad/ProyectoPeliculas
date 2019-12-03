@@ -8,8 +8,10 @@ import { PeliService } from "../../services/peli.service";
   styleUrls: ['./pelicula.component.css']
 })
 export class PeliculaComponent {
-
-  // pelicula: any;
+   latYelmo:number = 36.134770; lngYelmo:number = -5.463353;
+   latOd:number =36.529291 ; lngOd:number = -4.875230;
+   latCinesa:number = 36.5327389; lngCinesa:number = -4.9045842;
+   zoom: number = 6;
   pelicula: any = {};
 
   loadingPelicula: boolean;
